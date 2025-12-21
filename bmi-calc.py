@@ -6,4 +6,14 @@ height = float(input("Enter your height in meters: "))
 
 bmi = weight / (height ** 2)
 
+if (bmi < 18.5):
+    body = "Underweight"
+elif (bmi < 25):
+    body = "Normal weight"
+elif (bmi < 30):
+    body = "overweight"
+else:
+    body = "Obese"
+
 print(f"\nYour BMI is: {bmi:.2f}")
+print(f"You are {body}")

@@ -1,8 +1,31 @@
 #this comment is to check how to push to github using git.:ppp
 print("=== BMI Calculator ===")
 
-weight = float(input("Enter your weight in kg: "))
-height = float(input("Enter your height in meters: "))
+while True:
+    try:
+        weight = float(input("Enter weight in Kg: "))
+        if weight <= 0:
+            print("Weight must be a positive number! Try again.\n")
+            continue
+        if weight > 500:
+            print("The value is unusually high. Please check again\n")
+            continue
+        break
+    except ValueError:
+        print("Invalid input! Please enter a number\n")
+
+while True:
+    try:
+        height = float(input("Enter height in meters: "))
+        if height <= 0:
+            print("Weight must be a positive number! Try again.\n")
+            continue
+        if height > 3:
+            print("The value is unusually high. Please check again\n")
+            continue
+        break
+    except ValueError:
+        print("Invalid input! Please enter a number\n")
 
 bmi = weight / (height ** 2)
 

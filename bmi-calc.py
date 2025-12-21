@@ -1,6 +1,9 @@
+import datetime
+
 #this comment is to check how to push to github using git.:ppp
 print("=== BMI Calculator ===")
 
+#Taking in weight with error handling
 while True:
     try:
         weight = float(input("Enter weight in Kg: "))
@@ -14,6 +17,7 @@ while True:
     except ValueError:
         print("Invalid input! Please enter a number\n")
 
+#taking in height with error handling
 while True:
     try:
         height = float(input("Enter height in meters: "))
@@ -27,8 +31,10 @@ while True:
     except ValueError:
         print("Invalid input! Please enter a number\n")
 
+#calculating the BMI
 bmi = weight / (height ** 2)
 
+#Conditions to show what value
 if (bmi < 18.5):
     body = "Underweight"
     emoji = "⚠️"
@@ -46,6 +52,13 @@ else:
     emoji = "🚨"
     advice = "Please consult a healthcare provider for a personalized health plan."
 
+#Printing the output 
 print(f"\nYour BMI is: {bmi:.2f}")
 print(f"Category: {body} {emoji}")
 print(advice)
+
+
+timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+with open("bmi_history.txt", "a") as file:
+    file.write(f"{timestamp} | Weight: {weight}kg | Height: {height}m | BMI: {bmi:.2f} | {body}\n")
+print("\nResult saved to bmi_history.txt")
